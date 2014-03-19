@@ -17,8 +17,7 @@ public class MyAspect {
 
   @Before("execution(* *.*(..))")
   public void logBefore(JoinPoint joinPoint) {
-    System.out.println("logBefore() is running for "
-        + joinPoint.getSignature().getName());
+    log.info("logBefore() is running for ", joinPoint.getSignature().getName());
   }
 
   @After("execution(* *.*(..))")

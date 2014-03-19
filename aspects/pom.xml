@@ -28,5 +28,23 @@
     <osgi.export.pkg>com.github.pires.example.aspect</osgi.export.pkg>
     <osgi.private.pkg></osgi.private.pkg>
   </properties>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <configuration>
+          <showWeaveInfo>true</showWeaveInfo>
+          <Xlint>ignore</Xlint>
+          <encoding>UTF-8</encoding>
+          <verbose>false</verbose>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <complianceLevel>${java.version}</complianceLevel>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

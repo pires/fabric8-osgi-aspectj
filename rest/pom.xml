@@ -11,13 +11,13 @@
   </parent>
 
   <artifactId>aspect-rest</artifactId>
-  <name>Aspects REST Implementation</name>
+  <name>Aspects Example REST Implementation</name>
   <packaging>bundle</packaging>
 
   <dependencies>
     <dependency>
       <groupId>com.github.pires.example</groupId>
-      <artifactId>aspect-bundle</artifactId>
+      <artifactId>aspect-service</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
