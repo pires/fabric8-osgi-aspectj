@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.github.pires.example</groupId>
+    <artifactId>aspect-parent</artifactId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>aspect-bundle</artifactId>
+  <name>Aspects Example Bundle</name>
+  <packaging>bundle</packaging>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.github.pires.example</groupId>
+      <artifactId>aspect-aspects</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+  </dependencies>
+	
+  <properties>
+    <osgi.import.pkg>*</osgi.import.pkg>
+    <osgi.export.pkg>com.github.pires.example.service</osgi.export.pkg>
+    <osgi.private.pkg>com.github.pires.example.service.impl</osgi.private.pkg>
+  </properties>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <version>1.5</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <showWeaveInfo>true</showWeaveInfo>
+          <Xlint>ignore</Xlint>
+          <encoding>UTF-8</encoding>
+          <verbose>false</verbose>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <complianceLevel>${java.version}</complianceLevel>
+          <aspectLibraries>
+            <aspectLibrary>
+              <groupId>com.github.pires.example</groupId>
+              <artifactId>aspect-aspects</artifactId>
+            </aspectLibrary>
+          </aspectLibraries>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
