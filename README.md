@@ -5,7 +5,7 @@ Fabric8 + OSGi + AspectJ demonstration code.
 
 # Pre-requisites
 
-* JDK 7 (don't try JDK 8 as aspects won't compile!!)
+* JDK 7 (**don't try JDK 8 as aspects won't compile!!**)
 * Maven 3.1.0 or newer
 
 # Build and install
